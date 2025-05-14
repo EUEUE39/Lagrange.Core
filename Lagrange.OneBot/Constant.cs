@@ -2,7 +2,7 @@ namespace Lagrange.OneBot;
 
 internal static class Constant
 {
-    public const string OneBotImpl = "Lagrange.OneBot";
+    public const string OneBotImpl = "CQHttp";
 
     public const int OneBotProtocolVersion = 11;
 
