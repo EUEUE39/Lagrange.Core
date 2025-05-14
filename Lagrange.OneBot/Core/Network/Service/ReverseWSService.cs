@@ -95,7 +95,7 @@ public partial class ReverseWSService(IOptionsSnapshot<ReverseWSServiceOptions> 
         var ws = new ClientWebSocket();
         ws.Options.SetRequestHeader("X-Client-Role", role);
         ws.Options.SetRequestHeader("X-Self-ID", context.BotUin.ToString());
-        ws.Options.SetRequestHeader("User-Agent", Constant.OneBotImpl);
+        ws.Options.SetRequestHeader("User-Agent", "CQHttp/4.5.0");
         if (options.Value.IgnoreSslCertificate) ws.Options.RemoteCertificateValidationCallback = (_, _, _, _) => true;
         
         if (_options.AccessToken != null) ws.Options.SetRequestHeader("Authorization", $"Bearer {_options.AccessToken}");
@@ -105,7 +105,7 @@ public partial class ReverseWSService(IOptionsSnapshot<ReverseWSServiceOptions> 
 
     protected override async Task ExecuteAsync(CancellationToken stoppingToken)
     {
-        _urlStr = $"{_options.Host}:{_options.Port}{_options.Suffix}";
+        _urlStr = $"{_options.Host}";
         if (!_options.Host.StartsWith("ws://") && !_options.Host.StartsWith("wss://"))
         {
             _urlStr = "ws://" + _urlStr;
