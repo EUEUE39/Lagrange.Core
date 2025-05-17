@@ -98,7 +98,7 @@ public partial class ReverseWSService(IOptionsSnapshot<ReverseWSServiceOptions> 
         ws.Options.SetRequestHeader("User-Agent", "CQHttp/4.5.0");
         if (options.Value.IgnoreSslCertificate) ws.Options.RemoteCertificateValidationCallback = (_, _, _, _) => true;
         
-        if (_options.AccessToken != null) ws.Options.SetRequestHeader("Authorization", $"Bearer {_options.AccessToken}");
+        if (_options.AccessToken != null) ws.Options.SetRequestHeader("Authorization", $"{_options.AccessToken}");
         ws.Options.KeepAliveInterval = Timeout.InfiniteTimeSpan;
         return ws;
     }
